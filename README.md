@@ -24,13 +24,13 @@ Getting Started
 
     bash
 
-git clone [<repository-url>](https://github.com/Akpams/pc-maintenance.git)
+git clone ttps://github.com/Akpams/pc-maintenance.git
 
 Navigate to the project directory:
 
 bash
 
-    cd <project-directory>
+    cd pc-maintenance
 
     Open index.html in your web browser to view the website.
 
