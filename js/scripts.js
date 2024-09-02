@@ -412,6 +412,6 @@
     });
 
     // Set interval to change image
-    setInterval(changeImage, 3000); // Change image every 4 seconds (3s for display + 1s for fade-out)
+    setInterval(changeImage, 4000); // Change image every 4 seconds (3s for display + 1s for fade-out)
 });
 })(jQuery);
