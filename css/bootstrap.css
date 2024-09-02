@@ -475,23 +475,31 @@ mark,
 .blockquote-footer::before {
   content: "\2014\00A0";
 }
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+
+#image-slide {
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+  #image-slide.fade-out {
+    opacity: 0;
+}
+
+#image-slide.fade-in {
+    opacity: 1;
+}
 
 .img-fluid {
-  position: relative;
+ 
   max-width: 100%;
   height: auto;
-  /* overflow: hidden; */
-  /* object-fit: cover; */
 }
-.image-container img {
-  
-  position: absolute; /* Ensure all images stack on top of each other */
-  width: 100%; /* Adjust as needed */
-  height: 80%; /* Adjust as needed */
-  transition: opacity 1s ease-in-out;
-  
-}
-
 
 .img-thumbnail {
   padding: 0.25rem;

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Rotator</title>
+    <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .img-fluid {
+            width: 100%;
+            height: auto;
+        }
+        #image-slide {
+    transition: opacity 1s ease-in-out;
+    /* opacity: 1; */
+}
+
+#image-slide.fade-out {
+    opacity: 0;
+}
+
+#image-slide.fade-in {
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="col-lg-6">
+        <div class="image-container">
+            <img class="img-fluid" src="/home/ubuntu/maintenace project/images/repair_new.jpg" alt="alternative" id="image-slide">
+        </div>
+    </div>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const images = [
+        '/home/ubuntu/maintenace project/images/repair_new.jpg',
+        '/home/ubuntu/maintenace project/images/repair_new.jpg',
+        '/home/ubuntu/maintenace project/images/repair_new.jpg'
+    ];
+
+    let currentIndex = 0;
+    const imageElement = document.getElementById('image-slide');
+
+    function changeImage() {
+        // Add fade-out class to start the fade-out transition
+        imageElement.classList.add('fade-out');
+
+        // Wait for the fade-out transition to complete
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+
+            // Ensure the new image is loaded and visible
+            imageElement.onload = () => {
+                // Remove fade-out class and add fade-in class
+                imageElement.classList.remove('fade-out');
+                imageElement.classList.add('fade-in');
+
+                // After the fade-in is complete, remove the fade-in class to prepare for the next transition
+                setTimeout(() => {
+                    imageElement.classList.remove('fade-in');
+                }, 1000); // Matches the fade-in duration
+            };
+        }, 1000); // Matches the fade-out duration
+    }
+
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // Set interval to change image
+    setInterval(changeImage, 3000); // Change image every 4 seconds (3s for display + 1s for fade-out)
+});
+    </script>
+</body>
+</html>

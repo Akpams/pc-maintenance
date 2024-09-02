@@ -371,24 +371,47 @@
 	$(".button, a, button").mouseup(function() {
 		$(this).blur();
 	});
-    let currentIndex = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = [
+            '/images/repair_new.jpg',
+            '/images/repair_new2.jpg',
+            '/images/repair_new3.jpg',
+            '/images/repair_new4.jpg'
+        ]; // Add more image paths as needed
+    
+        let currentIndex = 0;
+    const imageElement = document.getElementById('image-slide');
 
-function switchImage() {
-    const images = document.querySelectorAll('.image-container img');
-    const totalImages = images.length;
+    function changeImage() {
+        // Add fade-out class to start the fade-out transition
+        imageElement.classList.add('fade-out');
 
-    // Fade out current image
-    images[currentIndex].style.opacity = '0';
+        // Wait for the fade-out transition to complete
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
 
-    // Calculate new index
-    currentIndex = (currentIndex + 1) % totalImages;
+            // Ensure the new image is loaded and visible
+            imageElement.onload = () => {
+                // Remove fade-out class and add fade-in class
+                imageElement.classList.remove('fade-out');
+                imageElement.classList.add('fade-in');
 
-    // Fade in new image
-    images[currentIndex].style.opacity = '1';
-}
+                // After the fade-in is complete, remove the fade-in class to prepare for the next transition
+                setTimeout(() => {
+                    imageElement.classList.remove('fade-in');
+                }, 1000); // Matches the fade-in duration
+            };
+        }, 1000); // Matches the fade-out duration
+    }
 
-// Set interval for image switch (every 5 seconds)
-setInterval(switchImage, 4000); // 5000 milliseconds = 5 seconds
+    // Preload images
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
 
-
+    // Set interval to change image
+    setInterval(changeImage, 3000); // Change image every 4 seconds (3s for display + 1s for fade-out)
+});
 })(jQuery);
