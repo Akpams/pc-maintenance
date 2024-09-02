@@ -1843,7 +1843,9 @@ a:hover.back-to-top {
 		margin-bottom: 0.5rem;
 	}
 	/* end of features */
-
+	.image-container img.active {
+		opacity: 1;
+	  }
 
 	/* Video */
 	.basic-1 .image-container {
@@ -1851,6 +1853,7 @@ a:hover.back-to-top {
 		padding: auto;
 		margin-right: auto;
 		margin-left: auto;
+
 	}
 	/* end of video */
 
@@ -1969,6 +1972,7 @@ a:hover.back-to-top {
 		margin-top: 7.5rem;
 		margin-left: 2.5rem;
 	}
+	
 
 	.header .image-container {
 		margin-left: 3rem;

@@ -371,5 +371,24 @@
 	$(".button, a, button").mouseup(function() {
 		$(this).blur();
 	});
+    let currentIndex = 0;
+
+function switchImage() {
+    const images = document.querySelectorAll('.image-container img');
+    const totalImages = images.length;
+
+    // Fade out current image
+    images[currentIndex].style.opacity = '0';
+
+    // Calculate new index
+    currentIndex = (currentIndex + 1) % totalImages;
+
+    // Fade in new image
+    images[currentIndex].style.opacity = '1';
+}
+
+// Set interval for image switch (every 5 seconds)
+setInterval(switchImage, 4000); // 5000 milliseconds = 5 seconds
+
 
 })(jQuery);
