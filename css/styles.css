@@ -45,7 +45,14 @@ body,
 html {
     width: 100%;
 	height: 100%;
+	margin: 0;
 }
+
+  
+  body {
+	display: flex;
+	flex-direction: column;
+  }
 
 body, p {
 	color: #7a7a80; 
@@ -699,7 +706,7 @@ input[type='checkbox'] {
 	margin-top: 0;
 	border: none;
 	border-radius: 0.25rem;
-	background-color: #362d66;
+	background-color: #68628f;
 }
 
 .navbar-custom .dropdown-item {
@@ -761,7 +768,7 @@ input[type='checkbox'] {
 /*    04. Header     */
 /*********************/
 .header {
-	background: linear-gradient(to bottom right, rgba(53, 53, 177, 0), rgba(241, 104, 104, 0)), url('../images/header-background3.jpg') center center no-repeat;
+	background: linear-gradient(to bottom right, rgba(53, 53, 177, 0), rgba(241, 104, 104, 0)), url('../images/video-background.jpg') center center no-repeat;
 	background-size: cover;
 }
 
@@ -781,6 +788,9 @@ input[type='checkbox'] {
 
 .header #js-rotating {
 	color: #40e0ee;
+}
+.header .start{
+	color: red;
 }
 
 .header .p-large {
@@ -1371,9 +1381,15 @@ input[type='checkbox'] {
 /**********************/
 /*     14. Footer     */
 /**********************/
+.main-content{
+	flex: 1;
+}
 .footer {
 	padding-top: 5rem;
-	background-color: #262431;
+	background-color: #4f4788;
+	padding: 20px;
+
+	
 }
 
 .footer .footer-col {
@@ -1427,6 +1443,7 @@ input[type='checkbox'] {
 	padding-bottom: 0.5rem;
 	background-color: #262431;
 	text-align: center;
+	padding: 10px 0;
 }
 
 .copyright .p-small {
@@ -1662,6 +1679,7 @@ a:hover.back-to-top {
 		margin-right: 2.5rem;
 		vertical-align: top;
 	}
+	
 
 	.tabs #tab-2 div.card:nth-child(2n+2) {
 		margin-right: 0;
@@ -2070,7 +2088,7 @@ a:hover.back-to-top {
 
 	/* Footer */
 	.footer .footer-col {
-		width: 90%;
+		width: 100%;
 	}
 
 	.footer .footer-col.middle {
